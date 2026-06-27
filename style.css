@@ -842,7 +842,6 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   /* Hero stacked */
   .hero { padding: 60px 0; }
   .hero__inner { grid-template-columns: 1fr; gap: 32px; }
-  .hero__visual { display: none; }
 
   /* Highlights single column */
   .highlights { padding: 48px 0; }
@@ -850,7 +849,6 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 
   /* About stacked */
   .about__grid { grid-template-columns: 1fr; }
-  .about__imgs { display: none; }
 
   /* Courses single column */
   .courses__grid { grid-template-columns: 1fr; }
