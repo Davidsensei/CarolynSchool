@@ -37,3 +37,5 @@ GitHub Pages serves the **`gh-pages`** branch (root). Push to that branch to pub
 ```bash
 git push origin HEAD:gh-pages
 ```
+
+Full hosting + custom-domain (Wix) instructions: see [`DEPLOY.md`](DEPLOY.md).
