@@ -7,20 +7,20 @@
 
 :root {
   /* --- Brand Colors (edit these to match your logo) --- */
-  --blue-deep:    #1a3060;   /* Darkest blue — dark sections, footer */
-  --blue:         #1e3a8a;   /* Main blue — headings, nav logo */
-  --blue-mid:     #2563eb;   /* Mid blue — hero gradient end, focus rings */
-  --amber:        #f59e0b;   /* Yellow/gold — buttons, accents */
-  --amber-dark:   #d97706;   /* Darker amber — button hover */
+  --blue-deep:    #1f3fad;   /* Darkest blue — dark sections, footer */
+  --blue:         #2563ef;   /* Main blue — headings, nav logo */
+  --blue-mid:     #3a81f6;   /* Mid blue — hero gradient end, focus rings */
+  --amber:        #ffc23d;   /* Yellow/gold — buttons, accents (primary) */
+  --amber-dark:   #e0a000;   /* Darker amber — button hover */
 
   /* --- Backgrounds --- */
-  --bg-white:     #ffffff;
-  --bg-light:     #eff6ff;   /* Light blue — alternate sections */
-  --bg-section:   #f7f9ff;   /* Very subtle blue-white — table stripes */
+  --bg-white:     #fffcf0;   /* Cream — base background, cards */
+  --bg-light:     #f7f4e9;   /* Warm off-white — alternate sections (muted) */
+  --bg-section:   #f9efe2;   /* Subtle cream — table stripes (secondary) */
 
   /* --- Text --- */
-  --text-dark:    #111827;
-  --text-muted:   #6b7280;
+  --text-dark:    #19191a;
+  --text-muted:   #737373;
   --text-white:   #ffffff;
 
   /* --- UI --- */
