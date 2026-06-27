@@ -160,6 +160,20 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 .img-placeholder--sm { min-height: 160px; }
 .img-placeholder p { font-weight: 700; font-size: 16px; }
 
+/* Real photos (replace placeholders) */
+.photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.hero__visual .photo {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  min-height: 380px;
+}
+
 /* ================================================
    NAVIGATION
    ================================================ */

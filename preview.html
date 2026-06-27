@@ -51,7 +51,7 @@ button{font:inherit;cursor:pointer;border:none;background:none}
 .btn--block{width:100%}
 .img-placeholder{background:var(--bg-section);border:2px dashed #cbd5e1;border-radius:var(--radius);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px;color:var(--text-muted);font-size:14px;min-height:280px;text-align:center;gap:6px}
 .img-placeholder--sm{min-height:160px}
-.img-placeholder p{font-weight:700;font-size:16px}
+.img-placeholder p{font-weight:700;font-size:16px}.photo{width:100%;height:auto;display:block;border-radius:var(--radius);box-shadow:var(--shadow)}.hero__visual .photo{aspect-ratio:4/3;object-fit:cover;min-height:380px}
 
 /* NAV */
 .nav{position:sticky;top:0;z-index:100;background:var(--bg-white);border-bottom:1px solid rgba(0,0,0,.07);transition:box-shadow var(--transition)}
@@ -261,10 +261,7 @@ button{font:inherit;cursor:pointer;border:none;background:none}
           </div>
         </div>
         <div class="hero__visual">
-          <div class="img-placeholder">
-            <p>📸 教室・レッスンの写真</p>
-            <small>写真をここに追加してください</small>
-          </div>
+          <img class="photo" src="images/hero-lesson.jpg" alt="レッスンの様子" loading="lazy">
         </div>
       </div>
     </section>
@@ -299,8 +296,8 @@ button{font:inherit;cursor:pointer;border:none;background:none}
         </div>
         <div class="about__grid">
           <div class="about__imgs">
-            <div class="img-placeholder"><p>📸 講師の写真</p></div>
-            <div class="img-placeholder img-placeholder--sm"><p>📸 授業の様子</p></div>
+            <img class="photo" src="images/teacher.jpg" alt="ネイティブ講師によるレッスン" loading="lazy">
+            <img class="photo" src="images/class-group.jpg" alt="生徒たちの集合写真" loading="lazy">
           </div>
           <div class="about__text">
             <h3>ネイティブ…なだけじゃない！</h3>
@@ -388,9 +385,9 @@ button{font:inherit;cursor:pointer;border:none;background:none}
                 <dt>対象</dt><dd>小学1〜6年生（英語経験者）</dd>
                 <dt>曜日</dt><dd>火曜日（2026年度 新1年生）</dd>
                 <dt>時間</dt><dd>16:40〜17:40（60分）</dd>
-                <dt>定員</dt><dd>各クラス8名（少人数制）</dd>
+                <dt>定員</dt><dd>各クラス10名</dd>
               </dl>
-              <p>幼稚園クラス卒業生または同等レベルのお子様向け少人数クラス。英語好きな仲間と一緒に、中学英語＋将来につながる英語力を伸ばします。</p>
+              <p>幼稚園クラス卒業生または同等レベルのお子様向けクラス。英語好きな仲間と一緒に、中学英語＋将来につながる英語力を伸ばします。</p>
               <p class="course-card__note">※ベーシッククラスから一定の英語力がついたお子様のクラス編入も可。お気軽にご相談ください。</p>
               <div class="course-card__price">¥11,000 <span>/月（税込）</span></div>
             </div>
@@ -427,7 +424,7 @@ button{font:inherit;cursor:pointer;border:none;background:none}
             </tbody>
           </table>
           <div class="pricing__extras">
-            <div class="pricing__extra"><strong>入会金</strong><span>¥10,000〜</span></div>
+            <div class="pricing__extra"><strong>入会金</strong><span>¥11,000〜</span></div>
             <div class="pricing__extra"><strong>教材費（年間）</strong><span>¥6,000〜</span></div>
           </div>
           <p class="pricing__note">※スクールイベント・シーズンスクールは希望制にて別途料金となります。</p>
