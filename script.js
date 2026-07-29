@@ -30,30 +30,53 @@ if (hamburger && navLinks) {
 }
 
 // --- Contact form ---
-// Currently shows a thank-you message on submit.
-//
-// TO CONNECT A REAL FORM SERVICE:
-//   Option A — Formspree (free, easy):
-//     1. Sign up at https://formspree.io
-//     2. Create a new form and copy your endpoint URL
-//     3. Set the <form> action to your endpoint and remove the JS below
-//
-//   Option B — Netlify Forms (free if hosting on Netlify):
-//     Add  data-netlify="true"  to the <form> tag and deploy to Netlify
-//
+// Submits to Formspree (form action) via AJAX so the visitor stays on the
+// page and sees the thank-you message instead of being redirected.
 const form = document.getElementById('contact-form');
 if (form) {
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const name = form.querySelector('#name').value.trim() || 'お客様';
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
 
-    form.innerHTML = `
-      <div class="form-success">
-        <div style="font-size:48px">✅</div>
-        <h3>${name}様、ありがとうございます！</h3>
-        <p>お問い合わせを受け付けました。<br>2〜3営業日以内にご連絡いたします。</p>
-      </div>
-    `;
+    const name = form.querySelector('#name').value.trim() || 'お客様';
+    const submitBtn = form.querySelector('button[type="submit"]');
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = '送信中…';
+    }
+
+    const showSuccess = () => {
+      form.innerHTML = `
+        <div class="form-success">
+          <div style="font-size:48px">✅</div>
+          <h3>${name}様、ありがとうございます！</h3>
+          <p>お問い合わせを受け付けました。<br>2〜3営業日以内にご連絡いたします。</p>
+        </div>
+      `;
+    };
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' },
+      });
+
+      if (response.ok) {
+        showSuccess();
+      } else {
+        throw new Error('送信に失敗しました');
+      }
+    } catch (err) {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = '送信する';
+      }
+      alert('申し訳ありません。送信に失敗しました。お手数ですが、お電話（027-237-3400）でお問い合わせください。');
+    }
   });
 }
