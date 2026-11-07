@@ -80,3 +80,74 @@ if (form) {
     }
   });
 }
+// --- Homepage photo carousel ---
+const initHeroCarousel = () => {
+  const carousel = document.querySelector('.hero__carousel');
+  if (!carousel) return;
+
+  const slides = Array.from(carousel.querySelectorAll('.photo'));
+  if (slides.length < 2) return;
+
+  let current = 0;
+  let timer;
+
+  // Create navigation dots
+  const dots = document.createElement('div');
+  dots.className = 'hero__carousel-dots';
+  dots.setAttribute('aria-label', '写真を選択');
+
+  const buttons = slides.map((slide, index) => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'hero__carousel-dot';
+    button.setAttribute('aria-label', `写真 ${index + 1} を表示`);
+    button.setAttribute('aria-pressed', String(index === 0));
+
+    button.addEventListener('click', () => {
+      showSlide(index);
+      restartTimer();
+    });
+
+    dots.appendChild(button);
+    return button;
+  });
+
+  carousel.appendChild(dots);
+
+  function showSlide(index) {
+    slides[current].classList.remove('active');
+    buttons[current].setAttribute('aria-pressed', 'false');
+
+    current = index;
+
+    slides[current].classList.add('active');
+    buttons[current].setAttribute('aria-pressed', 'true');
+  }
+
+  function startTimer() {
+    clearInterval(timer);
+    timer = setInterval(() => {
+      showSlide((current + 1) % slides.length);
+    }, 5000);
+  }
+
+  function restartTimer() {
+    startTimer();
+  }
+
+  // Pause while visitors interact with the carousel
+  carousel.addEventListener('mouseenter', () => clearInterval(timer));
+  carousel.addEventListener('mouseleave', startTimer);
+  carousel.addEventListener('focusin', () => clearInterval(timer));
+  carousel.addEventListener('focusout', (event) => {
+    if (!carousel.contains(event.relatedTarget)) startTimer();
+  });
+
+  startTimer();
+};
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initHeroCarousel);
+} else {
+  initHeroCarousel();
+}
