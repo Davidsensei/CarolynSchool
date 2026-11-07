@@ -967,3 +967,26 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   outline: 2px solid #fff;
   outline-offset: 3px;
 }
+/* Mobile hero carousel adjustments */
+@media (max-width: 600px) {
+
+  .hero__inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hero__inner > * {
+    min-width: 0;
+  }
+
+  .hero__visual {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .hero__carousel {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    min-height: 0;
+  }
+
+}
