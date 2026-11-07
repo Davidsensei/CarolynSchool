@@ -168,10 +168,32 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   border-radius: var(--radius);
   box-shadow: var(--shadow);
 }
-.hero__visual .photo {
+/* Homepage photo carousel */
+.hero__carousel {
+  position: relative;
+  width: 100%;
   aspect-ratio: 4 / 3;
-  object-fit: cover;
   min-height: 380px;
+  overflow: hidden;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.hero__carousel .photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+  box-shadow: none;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.hero__carousel .photo.active {
+  opacity: 1;
+}
 }
 
 /* Embedded map */
